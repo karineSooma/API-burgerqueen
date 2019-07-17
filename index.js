@@ -21,7 +21,6 @@ app.listen(3666, () => {console.log('comecou')});
 app.use(express.json());
 app.use('/users', require('./routes/user'));
 app.use('/orders', require('./routes/orders'));
-app.use('/products', require('./routes/products'));
 
 db.sequelize.sync();
 

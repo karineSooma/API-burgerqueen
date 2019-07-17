@@ -3,20 +3,19 @@ const models = require('../models');
 const Orders = models.Orders;
 const User = models.User;
 const Products = models.Products;
-const OrderProducts = models.OrderProducts;
 
 
-router.get('/', (req, res) => {
-  Orders.findAll({include: [{model: OrderProducts, include: [Products]}, User]})
-    .then(orders => 
-      res.send(orders))
-  });
+// router.get('/', (req, res) => {
+//   Orders.findAll({include: [{model: OrderProducts, include: [Products]}, User]})
+//     .then(orders => 
+//       res.send(orders))
+//   });
 
-router.get('/:orderid', (req, res) => {
-  Orders.findByPk(req.params.orderid, ({include: [{model: OrderProducts, include: [Products]}, User]}))
-    .then(order => 
-      res.send(order))
-});
+// router.get('/:orderid', (req, res) => {
+//   Orders.findByPk(req.params.orderid, ({include: [{model: OrderProducts, include: [Products]}, User]}))
+//     .then(order => 
+//       res.send(order))
+// });
 
 router.post('/', (req, res) => {
   Orders.create(req.body)

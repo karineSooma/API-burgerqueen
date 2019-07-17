@@ -14,6 +14,13 @@ router.get('/:productid', (req, res) => {
       res.send(product))
 });
 
+router.post('/', (req, res) => {
+  Products.create(req.body)
+    .then(order => {
+      res.status(201).send(product);
+    })
+});
+
 router.put('/:productid', (req, res) => {
   Products.update({...req.body}, {where: {id: req.params.productid}})
     .then(() => {
